@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "474224212706",
+    "project_id": "upishi-smart",
+    "storage_bucket": "upishi-smart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474224212706:android:3226f1fe45c8029ad7fcbb",
+        "android_client_info": {
+          "package_name": "com.shibe.upishi_smart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474224212706-4i1g5uht0gfhhd64glr497ota03595be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8EjPKNFj4H00gwKe_XqoYTkOj1LzstxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474224212706-4i1g5uht0gfhhd64glr497ota03595be.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
