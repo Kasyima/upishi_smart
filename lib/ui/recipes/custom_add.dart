@@ -28,46 +28,64 @@ class _LocalFoodsAdditionState extends State<LocalFoodsAddition> {
     TextEditingController _imageUrlController = TextEditingController();
     TextEditingController _descriptionController = TextEditingController();
     TextEditingController _totalTimeController = TextEditingController();
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(
-              "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlc3RhdXJhbnQlMjBraXRjaGVufGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white10,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
+        elevation: 6.0,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          recipeTextForm(
-            _titleController,
-            "Enter the title of the recipe",
-            "Title",
+      body: Container(
+        padding: const EdgeInsets.only(
+          top: 30,
+        ),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(
+                "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlc3RhdXJhbnQlMjBraXRjaGVufGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          recipeTextForm(
-            _titleController,
-            "Enter the image url of the recipe",
-            "Image url",
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          recipeTextForm(
-            _titleController,
-            "Enter the description of the recipe",
-            "description",
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          recipeTextForm(
-            _titleController,
-            "Enter the total cooking time of the recipe",
-            "Recipe preparation time",
-          ),
-          ElevatedButton(
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            recipeTextForm(
+              _titleController,
+              // "Enter the title of the recipe",
+              "Title",
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            recipeTextForm(
+              _imageUrlController,
+              // "Enter the image url of the recipe",
+              "Image url",
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            recipeTextForm(
+              _descriptionController,
+              // "Enter the description of the recipe",
+              "description",
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            recipeTextForm(
+              _totalTimeController,
+              // "Enter the total cooking time of the recipe",
+              "Recipe preparation time",
+            ),
+            ElevatedButton(
               onPressed: () {
                 _addLocalFood(
                   _titleController.text,
@@ -83,8 +101,13 @@ class _LocalFoodsAdditionState extends State<LocalFoodsAddition> {
                   color: Color.fromARGB(255, 6, 80, 88),
                   fontSize: 20,
                 ),
-              ))
-        ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -100,30 +123,43 @@ Widget additionAlert() {
 Widget recipeTextForm(
   TextEditingController controller,
   String hint,
-  String label,
+  // String label,
 ) {
-  return Container(
-    margin: const EdgeInsets.all(10),
-    decoration: BoxDecoration(
-      color: Colors.black87,
-      borderRadius: BorderRadius.circular(20.0),
-    ),
-    height: 50,
-    width: double.maxFinite,
-    child: TextFormField(
-      controller: controller,
-      // initialValue: 'Title',
-      style: const TextStyle(
-        color: Colors.black54,
+  return Flexible(
+    child: Container(
+      margin: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(
+        top: 30,
+        left: 20,
+        bottom: 20,
       ),
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: const TextStyle(
-          color: Color.fromARGB(164, 20, 126, 129),
+      // margin: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.black54,
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      height: 110,
+      width: double.maxFinite,
+      child: TextFormField(
+        controller: controller,
+        // initialValue: 'Title',
+        style: const TextStyle(
+          color: Colors.white,
         ),
-        filled: false,
-        // border: const OutlineInputBorder(),
-        labelText: label,
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: const TextStyle(
+            color: Color.fromARGB(255, 246, 248, 249),
+            fontSize: 16.0,
+          ),
+          filled: false,
+          // border: const OutlineInputBorder(),
+          // labelText: label,
+          // labelStyle: const TextStyle(
+          //   color: Color.fromARGB(255, 246, 248, 249),
+          //   fontSize: 18,
+          // )
+        ),
       ),
     ),
   );

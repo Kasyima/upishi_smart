@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     pageList.add(const RecipeList());
     pageList.add(const MyRecipesList());
     pageList.add(const ShoppingList());
-    pageList.add(const LocalFoods());
+    pageList.add(const CustomFoodList());
     getCurrentIndex();
   }
 

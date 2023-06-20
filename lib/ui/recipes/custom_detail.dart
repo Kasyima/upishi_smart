@@ -4,12 +4,11 @@ import 'package:recipes/network/local_foods/custom.dart';
 
 import 'package:recipes/ui/widgets/app_icon.dart';
 import 'package:recipes/ui/widgets/big_text.dart';
-import 'package:recipes/ui/widgets/colors.dart';
 import 'package:recipes/ui/widgets/expandable_text_widget.dart';
 
 class CustomFoodDetail extends StatelessWidget {
   // final int pageId;
-  final CustomFoods customfoods;
+  final customfoods;
   const CustomFoodDetail({Key? key, required this.customfoods})
       : super(key: key);
 
@@ -58,7 +57,7 @@ class CustomFoodDetail extends StatelessWidget {
                 ),
                 child: Center(
                   child: BigText(
-                    text: customfoods.title,
+                    text: customfoods.get('title') as String,
                     size: 25,
                   ),
                 ),
@@ -69,7 +68,7 @@ class CustomFoodDetail extends StatelessWidget {
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
               background: CachedNetworkImage(
-                imageUrl: customfoods.imageUrl ?? '',
+                imageUrl: customfoods.get('imageUrl') as String ?? '',
                 alignment: Alignment.topLeft,
                 fit: BoxFit.fill,
                 width: size.width,
@@ -86,7 +85,7 @@ class CustomFoodDetail extends StatelessWidget {
                   top: 25,
                 ),
                 child: ExpandableTextWidget(
-                  text: '${customfoods.description}',
+                  text: '${customfoods.get('description') as String}',
                 ),
               ),
             ],
