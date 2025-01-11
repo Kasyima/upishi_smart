@@ -25,9 +25,6 @@ class CustomFood {
   // Map<String, dynamic> toJson() => _$APIRecipeQueryToJson(this);
 
   String getTime(double? calories) {
-    if (totalTime == null) {
-      return '0 MINUTES';
-    }
     return '${totalTime.floor()} minutes';
   }
 
